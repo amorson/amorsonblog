@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Coming Back Home &middot; amorson writes</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.7;
+    color: #111111;
+    background-color: #d8d2c8;
+    background-image: url('https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=2400&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+  }
+
+  .wrap {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 48px 20px 72px;
+  }
+
+  /* ---- Light overlay profile (dark text on light cards) ---- */
+  .card {
+    background: rgba(255, 255, 255, 0.92);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    padding: 36px 40px;
+    margin-bottom: 24px;
+  }
+
+  /* ---- Top bar ---- */
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 28px;
+  }
+
+  .topbar .brand {
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    color: #111111;
+  }
+
+  .topbar .brand:hover { color: #1d4ed8; }
+
+  .topbar .home {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: #4b5563;
+  }
+
+  .topbar .home:hover { color: #1d4ed8; }
+
+  /* ---- Article ---- */
+  .meta {
+    margin: 0 0 10px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: #6b7280;
+  }
+
+  h1 {
+    margin: 0 0 28px;
+    font-size: clamp(1.9rem, 5vw, 2.6rem);
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    color: #111111;
+  }
+
+  .article p {
+    margin: 0 0 22px;
+    font-size: 1.08rem;
+    color: #1f2430;
+  }
+
+  .article p.lede {
+    font-size: 1.2rem;
+    color: #111111;
+  }
+
+  blockquote {
+    margin: 34px 0 28px;
+    padding: 4px 0 4px 24px;
+    border-left: 3px solid rgba(0, 0, 0, 0.22);
+    font-size: 1.14rem;
+    font-style: italic;
+    color: #111111;
+  }
+
+  blockquote p { margin: 0 0 8px; }
+
+  blockquote cite {
+    display: block;
+    font-size: 0.9rem;
+    font-style: normal;
+    font-weight: 600;
+    color: #4b5563;
+  }
+
+  /* ---- Inline post images (half-column float) ---- */
+  .post-figure {
+    margin: 6px 0 18px;
+  }
+
+  .post-figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+  }
+
+  .post-figure figcaption {
+    margin-top: 10px;
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: #4b5563;
+  }
+
+  .post-figure.right {
+    float: right;
+    width: 50%;
+    margin-left: 28px;
+  }
+
+  .post-figure.left {
+    float: left;
+    width: 50%;
+    margin-right: 28px;
+  }
+
+  /* keep floated figures inside the article card */
+  .article::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+
+  blockquote { clear: both; }
+
+  /* ---- Chronological navigation ---- */
+  .postnav {
+    display: flex;
+    gap: 16px;
+    justify-content: space-between;
+    align-items: stretch;
+    padding: 22px 28px;
+    margin-bottom: 0;
+  }
+
+  .postnav a, .postnav span {
+    flex: 1 1 0;
+    font-size: 0.92rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: #1d4ed8;
+  }
+
+  .postnav a:hover { text-decoration: underline; }
+
+  .postnav .next { text-align: right; }
+
+  .postnav .disabled {
+    color: #9ca3af;
+    font-weight: 500;
+    cursor: default;
+  }
+
+  .postnav .label {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 4px;
+  }
+
+  @media (max-width: 640px) {
+    .post-figure.right,
+    .post-figure.left {
+      float: none;
+      width: 100%;
+      margin: 22px 0 24px;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .wrap { padding: 24px 14px 48px; }
+    .card { padding: 26px 22px; }
+    .topbar, .postnav { padding: 18px 22px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="card topbar">
+    <a class="brand" href="../index.html">amorson writes</a>
+    <a class="home" href="../index.html">&larr; All posts</a>
+  </nav>
+
+  <article class="card article">
+    <p class="meta">September 13, 2026</p>
+    <h1>Coming Back Home</h1>
+
+    <p class="lede">There&rsquo;s something uniquely intimate about writing. It&rsquo;s beyond a communication medium, it&rsquo;s a way to brainstorm and canvas ideas. For years, writing has been my preferred way of forming ideas, processing thoughts, and connecting with others. Yet, life has a way of pulling us away from the things that require time and investment. Responsibilities pile up, children, family, work, distractions grow, and slowly, the pages remain blank. That&rsquo;s what happened when I ran TechMount.</p>
+
+    <p>And now, after a long pause, I&rsquo;m coming back to writing. And it feels like coming back home.</p>
+
+    <figure class="post-figure right">
+      <img src="../images/2026-09-13-RM.png" alt="Screenshot of the TechMount blog homepage, showing a post titled &quot;Nook touch - First impressions&quot; alongside the sidebar of categories and recent posts.">
+      <figcaption>TechMount, the blog I kept for over ten years before it went offline in 2014.</figcaption>
+    </figure>
+    <p>For over 10 years I maintained a blog under the name of TechMount. At some point during 2011 I stopped writing regularly, and in mid 2014 the blog finally went offline. Since then, I wasn&rsquo;t writing publicly in any regular capacity, some posts on LinkedIn, guest posts published on company blogs or online publications.</p>
+
+    <p>The passion for writing never left me. It simmered quietly in the background, even during the hiatus, I found myself jotting down fragments of ideas or scribbling drafts for projects that never started.</p>
+
+    <p>Returning to writing is both exhilarating and humbling. The words don&rsquo;t flow as effortlessly and elegantly as they once did, but writing isn&rsquo;t about perfection. It&rsquo;s about presence, it&rsquo;s about sticking to it, it&rsquo;s about putting words on &ldquo;paper&rdquo;, even when it feels uncomfortable.</p>
+
+    <blockquote>
+      <p>&ldquo;I write only when inspiration strikes. Fortunately it strikes every morning at nine o&rsquo;clock sharp.&rdquo;</p>
+      <cite>&mdash; W. Somerset Maugham</cite>
+    </blockquote>
+  </article>
+
+  <nav class="card postnav">
+    <span class="prev disabled"><span class="label">Previous</span>No earlier post</span>
+    <span class="next disabled"><span class="label">Next</span>No newer post</span>
+  </nav>
+
+</div>
+</body>
+</html>
