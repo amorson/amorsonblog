@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Coming Back Home &middot; amorson writes</title>
+<title>Fauda, Season Five &middot; amorson writes</title>
 <style>
   *, *::before, *::after { box-sizing: border-box; }
 
@@ -14,9 +14,9 @@
     min-height: 100vh;
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
     line-height: 1.7;
-    color: #111111;
-    background-color: #d8d2c8;
-    background-image: url('https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=2400&q=80');
+    color: #F3F4F6;
+    background-color: #c8a86a;
+    background-image: url('../images/2026-09-20-bg-fields.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -29,12 +29,12 @@
     padding: 48px 20px 72px;
   }
 
-  /* ---- Light overlay profile (dark text on light cards) ---- */
+  /* ---- Dark overlay profile (light text on dark cards) ---- */
   .card {
-    background: rgba(255, 255, 255, 0.92);
+    background: rgba(15, 15, 15, 0.9);
     -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 16px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
     padding: 36px 40px;
@@ -55,19 +55,19 @@
     font-weight: 700;
     letter-spacing: -0.01em;
     text-decoration: none;
-    color: #111111;
+    color: #F3F4F6;
   }
 
-  .topbar .brand:hover { color: #1d4ed8; }
+  .topbar .brand:hover { color: #93c5fd; }
 
   .topbar .home {
     font-size: 0.85rem;
     font-weight: 600;
     text-decoration: none;
-    color: #4b5563;
+    color: #b9bec7;
   }
 
-  .topbar .home:hover { color: #1d4ed8; }
+  .topbar .home:hover { color: #93c5fd; }
 
   /* ---- Article ---- */
   .meta {
@@ -76,7 +76,7 @@
     font-weight: 600;
     letter-spacing: 0.09em;
     text-transform: uppercase;
-    color: #6b7280;
+    color: #8b929c;
   }
 
   h1 {
@@ -84,37 +84,24 @@
     font-size: clamp(1.9rem, 5vw, 2.6rem);
     line-height: 1.18;
     letter-spacing: -0.02em;
-    color: #111111;
+    color: #F3F4F6;
   }
 
   .article p {
     margin: 0 0 22px;
     font-size: 1.08rem;
-    color: #1f2430;
+    color: #d5d9df;
   }
 
   .article p.lede {
     font-size: 1.2rem;
-    color: #111111;
+    color: #F3F4F6;
   }
 
-  blockquote {
-    margin: 34px 0 28px;
-    padding: 4px 0 4px 24px;
-    border-left: 3px solid rgba(0, 0, 0, 0.22);
+  .article p.beat {
     font-size: 1.14rem;
-    font-style: italic;
-    color: #111111;
-  }
-
-  blockquote p { margin: 0 0 8px; }
-
-  blockquote cite {
-    display: block;
-    font-size: 0.9rem;
-    font-style: normal;
     font-weight: 600;
-    color: #4b5563;
+    color: #F3F4F6;
   }
 
   /* ---- Inline post images (half-column float) ---- */
@@ -127,15 +114,15 @@
     width: 100%;
     height: auto;
     border-radius: 10px;
-    border: 1px solid rgba(0, 0, 0, 0.12);
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
   }
 
   .post-figure figcaption {
     margin-top: 10px;
     font-size: 0.82rem;
     line-height: 1.5;
-    color: #4b5563;
+    color: #8b929c;
   }
 
   .post-figure.right {
@@ -157,8 +144,6 @@
     clear: both;
   }
 
-  blockquote { clear: both; }
-
   /* ---- Chronological navigation ---- */
   .postnav {
     display: flex;
@@ -174,7 +159,7 @@
     font-size: 0.92rem;
     font-weight: 600;
     text-decoration: none;
-    color: #1d4ed8;
+    color: #93c5fd;
   }
 
   .postnav a:hover { text-decoration: underline; }
@@ -182,7 +167,7 @@
   .postnav .next { text-align: right; }
 
   .postnav .disabled {
-    color: #9ca3af;
+    color: #6b7280;
     font-weight: 500;
     cursor: default;
   }
@@ -193,7 +178,7 @@
     font-weight: 700;
     letter-spacing: 0.09em;
     text-transform: uppercase;
-    color: #6b7280;
+    color: #8b929c;
     margin-bottom: 4px;
   }
 
@@ -222,32 +207,34 @@
   </nav>
 
   <article class="card article">
-    <p class="meta">September 13, 2026</p>
-    <h1>Coming Back Home</h1>
+    <p class="meta">September 20, 2026</p>
+    <h1>Fauda, Season Five</h1>
 
-    <p class="lede">There&rsquo;s something uniquely intimate about writing. It&rsquo;s beyond a communication medium, it&rsquo;s a way to brainstorm and canvas ideas. For years, writing has been my preferred way of forming ideas, processing thoughts, and connecting with others. Yet, life has a way of pulling us away from the things that require time and investment. Responsibilities pile up, children, family, work, distractions grow, and slowly, the pages remain blank. That&rsquo;s what happened when I ran TechMount.</p>
+    <p class="lede">The fifth season of Fauda (no spoilers) offers, on the surface, more of what we know from the first four seasons: suspense, dialog, anticipation, well crafted plot, and heart-pounding moments.</p>
 
-    <p>And now, after a long pause, I&rsquo;m coming back to writing. And it feels like coming back home.</p>
+    <p class="beat">But only on the surface.</p>
+
+    <p>For the first time, the racing heartbeats stem not from what is to come, but from what has already happened. Not from an unknown future, but from a past we do not wish to witness, again.</p>
 
     <figure class="post-figure right">
-      <img src="../images/2026-09-13-RM.png" alt="Screenshot of the TechMount blog homepage, showing a post titled &quot;Nook touch - First impressions&quot; alongside the sidebar of categories and recent posts.">
-      <figcaption>TechMount, the blog I kept for over ten years before it went offline in 2014.</figcaption>
+      <img src="../images/2026-09-20-fauda.jpg" alt="Key art for Fauda: three weathered men staring directly at the camera against a dim, dust-coloured background.">
+      <figcaption>Fauda, season five. Key art via TMDB.</figcaption>
     </figure>
-    <p>For over 10 years I maintained a blog under the name of TechMount. At some point during 2011 I stopped writing regularly, and in mid 2014 the blog finally went offline. Since then, I wasn&rsquo;t writing publicly in any regular capacity, some posts on LinkedIn, guest posts published on company blogs or online publications.</p>
 
-    <p>The passion for writing never left me. It simmered quietly in the background, even during the hiatus, I found myself jotting down fragments of ideas or scribbling drafts for projects that never started.</p>
+    <p>And the characters, too, are no longer rugged alpha males (and females), they are people living amidst a fracture. That fracture is visible in every single one of them. There are those who can still be saved, where hope still clings, and then there are the other kind, beyond saving. Living and breathing, their heart is beating, yet they are long gone. In the few rare moments they manage to be truly present, we encounter a horror we do not want to see.</p>
 
-    <p>Returning to writing is both exhilarating and humbling. The words don&rsquo;t flow as effortlessly and elegantly as they once did, but writing isn&rsquo;t about perfection. It&rsquo;s about presence, it&rsquo;s about sticking to it, it&rsquo;s about putting words on &ldquo;paper&rdquo;, even when it feels uncomfortable.</p>
+    <p>The dialogs carry dark humor, yet we do not laugh, the suspense is palpable, yet it is not the plot that keeps us on edge. Every single minute does not move forward but backward, minute after minute, leading up to &ldquo;the Seventh,&rdquo; a date that looms constantly, an event we know is inevitably approaching.</p>
 
-    <blockquote>
-      <p>&ldquo;I write only when inspiration strikes. Fortunately it strikes every morning at nine o&rsquo;clock sharp.&rdquo;</p>
-      <cite>&mdash; W. Somerset Maugham</cite>
-    </blockquote>
+    <p>This is the genius of Lior Raz and Avi Issacharoff, without explicitly telling us, they have shifted the genre to reveal what this unspoken fracture looks like &mdash; the PTSD, the half-life by those who have seen things they can never bear to remember. We too, are going through a parallel process, knowing that the series&rsquo; past, or rather, its future, is about to catch up with us.</p>
+
+    <p>What is truly amazing is that it isn&rsquo;t just Israelis watching the series who experience this, but people all over the world.</p>
+
+    <p>If anyone truly deserves applause, they are the creators and cast of Fauda, for they take us on an immense emotional journey of bare bones humanity.</p>
   </article>
 
   <nav class="card postnav">
-    <span class="prev disabled"><span class="label">Previous</span>No earlier post</span>
-    <a class="next" href="2026-09-20-fauda-season-five.html"><span class="label">Next</span>Fauda, Season Five</a>
+    <a class="prev" href="2026-09-13-coming-back-home.html"><span class="label">Previous</span>Coming Back Home</a>
+    <span class="next disabled"><span class="label">Next</span>No newer post</span>
   </nav>
 
 </div>
