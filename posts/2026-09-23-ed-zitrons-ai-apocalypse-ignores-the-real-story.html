@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ed Zitron&rsquo;s AI Apocalypse Ignores the Real Story &middot; amorson writes</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.7;
+    color: #F3F4F6;
+    background-color: #070b14;
+    background-image: url('../images/2026-09-23-bg-network.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+  }
+
+  .wrap {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 48px 20px 72px;
+  }
+
+  /* ---- Dark overlay profile (light text on dark cards) ---- */
+  .card {
+    background: rgba(15, 15, 15, 0.9);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    padding: 36px 40px;
+    margin-bottom: 24px;
+  }
+
+  /* ---- Top bar ---- */
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 28px;
+  }
+
+  .topbar .brand {
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    color: #F3F4F6;
+  }
+
+  .topbar .brand:hover { color: #93c5fd; }
+
+  .topbar .home {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: #b9bec7;
+  }
+
+  .topbar .home:hover { color: #93c5fd; }
+
+  /* ---- Article ---- */
+  .meta {
+    margin: 0 0 10px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: #8b929c;
+  }
+
+  h1 {
+    margin: 0 0 28px;
+    font-size: clamp(1.9rem, 5vw, 2.6rem);
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    color: #F3F4F6;
+  }
+
+  .article p {
+    margin: 0 0 22px;
+    font-size: 1.08rem;
+    color: #d5d9df;
+  }
+
+  .article p.lede {
+    font-size: 1.2rem;
+    color: #F3F4F6;
+  }
+
+  .article p.beat {
+    font-size: 1.14rem;
+    font-weight: 600;
+    color: #F3F4F6;
+  }
+
+  /* ---- Hero image (full width, top of article) ---- */
+  .post-hero {
+    margin: 0 0 30px;
+  }
+
+  .post-hero img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+  }
+
+  .post-hero figcaption {
+    margin-top: 10px;
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: #8b929c;
+  }
+
+  /* ---- Inline post images (half-column float) ---- */
+  .post-figure {
+    margin: 6px 0 18px;
+  }
+
+  .post-figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
+  }
+
+  .post-figure figcaption {
+    margin-top: 10px;
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: #8b929c;
+  }
+
+  .post-figure.right {
+    float: right;
+    width: 50%;
+    margin-left: 28px;
+  }
+
+  .post-figure.left {
+    float: left;
+    width: 50%;
+    margin-right: 28px;
+  }
+
+  /* keep floated figures inside the article card */
+  .article::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+
+  /* ---- Chronological navigation ---- */
+  .postnav {
+    display: flex;
+    gap: 16px;
+    justify-content: space-between;
+    align-items: stretch;
+    padding: 22px 28px;
+    margin-bottom: 0;
+  }
+
+  .postnav a, .postnav span {
+    flex: 1 1 0;
+    font-size: 0.92rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: #93c5fd;
+  }
+
+  .postnav a:hover { text-decoration: underline; }
+
+  .postnav .next { text-align: right; }
+
+  .postnav .disabled {
+    color: #6b7280;
+    font-weight: 500;
+    cursor: default;
+  }
+
+  .postnav .label {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: #8b929c;
+    margin-bottom: 4px;
+  }
+
+  @media (max-width: 640px) {
+    .post-figure.right,
+    .post-figure.left {
+      float: none;
+      width: 100%;
+      margin: 22px 0 24px;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .wrap { padding: 24px 14px 48px; }
+    .card { padding: 26px 22px; }
+    .topbar, .postnav { padding: 18px 22px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="card topbar">
+    <a class="brand" href="../index.html">amorson writes</a>
+    <a class="home" href="../index.html">&larr; All posts</a>
+  </nav>
+
+  <article class="card article">
+    <p class="meta">September 23, 2026</p>
+    <h1>Ed Zitron&rsquo;s AI Apocalypse Ignores the Real Story</h1>
+
+    <figure class="post-hero">
+      <img src="../images/2026-09-23-zitron-hero.jpg" alt="Title card reading &quot;Ed Zitron's AI Apocalypse Ignores the Real Story&quot; beside a giant red-eyed war machine looming over a burning city, with a hand holding a sign that reads &quot;Hype does not equal the full story&quot;.">
+    </figure>
+
+    <p class="lede">Ed Zitron has been running from interview to podcast making a case against the AI boom. It&rsquo;s tidy, loud, and easy to cut into short scary TikTok clips.</p>
+
+    <p>OpenAI is burning cash at scale. A failed IPO or funding would hurt SoftBank, Microsoft, and everyone downstream. Big Tech&rsquo;s GPU spend is being overpriced. Venture valuations are paper. Nvidia&rsquo;s financing loops are circular. Index funds mean your pension sits on a stack of chips.</p>
+
+    <p class="beat">All true in the short run and completely misses the long game.</p>
+
+    <p>The AI industry isn&rsquo;t only selling a service, it&rsquo;s building a dependency. Once that dependency takes root in business and a generation that replaced Google Search with chatbots. They will pay what it takes to keep it alive.</p>
+
+    <p>Zitron treats OpenAI&rsquo;s capital needs as evidence that the whole project is hollow. Cash spend is real, same as the forming habit.</p>
+
+    <p>Enterprises have already wired copilots into coding, support, security, analytics, and more. Teams that used to wait on tickets now ship with AI in the loop. Pull that out and you lose throughput, response time, and the new baseline of &ldquo;normal&rdquo;.</p>
+
+    <p>Organizations don&rsquo;t casually return to the old baselines. They renegotiate contracts, switch vendors, cut elsewhere, or accept higher prices. They don&rsquo;t delete the dependency because a podcast said the economics are messy.</p>
+
+    <p>Same goes for the younger workers. A generation is learning to write, code, research, and decide with AI. It&rsquo;s a sticky skill. Sticky demand is what lets expensive infrastructure survive the hard years.</p>
+
+    <p>Zitron&rsquo;s &ldquo;OpenAI as ground zero&rdquo; story assumes that if one flagship firm stumbles, belief evaporates and the market re-evaluates everything. Markets do and will continue to punish overvaluation. That doesn&rsquo;t mean users abandoning tools.</p>
+
+    <p>If OpenAI hiccups, Anthropic, Google, Microsoft, and others compete to absorb the workload. Dependency requires that someone keep everything running. Capital follows the forced demand created by dependency.</p>
+
+    <p>Circular GPU financing can inflate demand. Skepticism is 100% deserved. They don&rsquo;t, however, erase the fact that millions now organize their day around generative tools.</p>
+
+    <p>Retail investors are exposed. The concentration argument cuts both ways: the same companies that could fall hardest are also the ones with distribution, cloud, and cash to keep running.</p>
+
+    <p>People don&rsquo;t only buy tools. They build habits, expectations, and reliance. AI companies are not raising money for a narrative. They are inserting themselves into the daily workflows and habits.</p>
+
+    <p>When it sticks, the industry doesn&rsquo;t need eternal hypergrowth to survive. It needs customers who can&rsquo;t go back. Those customers are forming now. And when the bill comes due, they will pay what they need to keep it going.</p>
+  </article>
+
+  <nav class="card postnav">
+    <a class="prev" href="2026-09-20-fauda-season-five.html"><span class="label">Previous</span>Fauda, Season Five</a>
+    <span class="next disabled"><span class="label">Next</span>No newer post</span>
+  </nav>
+
+</div>
+</body>
+</html>
